@@ -3,9 +3,8 @@ import * as Yup from "yup";
 import { useId } from "react";
 import { useDispatch } from "react-redux";
 
-import { addContact } from "../../redux/contactsSlice";
-
 import styles from "./ContactForm.module.css";
+import { fetchContacts } from "../../redux/contactsOps";
 
 const initialValues = {
   name: "",
@@ -29,17 +28,17 @@ const ContactForm = () => {
   const nameId = useId();
   const numberId = useId();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
-    dispatch(addContact(values));
-    actions.resetForm();
-  };
+  // const handleSubmit = (values, actions) => {
+  //   dispatch(fetchContacts(values));
+  //   actions.resetForm();
+  // };
 
   return (
     <Formik
       initialValues={initialValues}
-      onSubmit={handleSubmit}
+      // onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
       <Form className={styles.contactForm}>
